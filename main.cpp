@@ -1,57 +1,143 @@
 #include <iostream>
-#include <array>
-
-#include <Helper.h>
-
-int main() {
-    std::cout << "Hello, world!\n";
-    std::array<int, 100> v{};
-    int nr;
-    std::cout << "Introduceți nr: ";
-    /////////////////////////////////////////////////////////////////////////
-    /// Observație: dacă aveți nevoie să citiți date de intrare de la tastatură,
-    /// dați exemple de date de intrare folosind fișierul tastatura.txt
-    /// Trebuie să aveți în fișierul tastatura.txt suficiente date de intrare
-    /// (în formatul impus de voi) astfel încât execuția programului să se încheie.
-    /// De asemenea, trebuie să adăugați în acest fișier date de intrare
-    /// pentru cât mai multe ramuri de execuție.
-    /// Dorim să facem acest lucru pentru a automatiza testarea codului, fără să
-    /// mai pierdem timp de fiecare dată să introducem de la zero aceleași date de intrare.
-    ///
-    /// Pe GitHub Actions (bife), fișierul tastatura.txt este folosit
-    /// pentru a simula date introduse de la tastatură.
-    /// Bifele verifică dacă programul are erori de compilare, erori de memorie și memory leaks.
-    ///
-    /// Dacă nu puneți în tastatura.txt suficiente date de intrare, îmi rezerv dreptul să vă
-    /// testez codul cu ce date de intrare am chef și să nu pun notă dacă găsesc vreun bug.
-    /// Impun această cerință ca să învățați să faceți un demo și să arătați părțile din
-    /// program care merg (și să le evitați pe cele care nu merg).
-    ///
-    /////////////////////////////////////////////////////////////////////////
-    std::cin >> nr;
-    /////////////////////////////////////////////////////////////////////////
-    for(int i = 0; i < nr; ++i) {
-        std::cout << "v[" << i << "] = ";
-        std::cin >> v[i];
+using namespace std;
+class Calculator
+{
+private:
+    long long A,B,C,D,E,F,P;
+    double G,H,I,J,K,L;
+public:
+    long long adunareNumereIntregi()
+    {
+        return A+B+C+D+E+F;
     }
-    std::cout << "\n\n";
-    std::cout << "Am citit de la tastatură " << nr << " elemente:\n";
-    for(int i = 0; i < nr; ++i) {
-        std::cout << "- " << v[i] << "\n";
+    double adunareNumereReale()
+    {
+        return G+H+I+J+K+L;
     }
-    ///////////////////////////////////////////////////////////////////////////
-    /// Pentru date citite din fișier, NU folosiți tastatura.txt. Creați-vă voi
-    /// alt fișier propriu cu ce alt nume doriți.
-    /// Exemplu:
-    /// std::ifstream fis("date.txt");
-    /// for(int i = 0; i < nr2; ++i)
-    ///     fis >> v2[i];
-    ///
-    ///////////////////////////////////////////////////////////////////////////
-    ///                Exemplu de utilizare cod generat                     ///
-    ///////////////////////////////////////////////////////////////////////////
-    Helper helper;
-    helper.help();
-    ///////////////////////////////////////////////////////////////////////////
+    double scadereNumereReale()
+    {
+        return G-H-I-J-K-L;
+    }
+    long long scadereNumereIntregi()
+    {
+        return A-B-C-D-E-F;
+    }
+    long long inmultireNumereIntregi()
+    {
+        return A*B*C*D*E*F;
+    }
+    double inmultireNumereReale()
+    {
+        return G*H*I*J*K*L;
+    }
+    double impartireNumereReale()
+    {
+        return G/(H*I*J*K*L);
+    }
+    long long impartireNumereIntregi()
+    {
+        P = B*C*D*E*F;
+        return P==0 ? /** LONG_LONG_MIN **/ -2147483648 : A/P;
+    }
+    void declarareNumereIntregi(long long a, long long b, long long c, long long d, long long e, long long f)
+    {
+        A=a,B=b,C=c,D=d,E=e,F=f;
+    }
+    void declarareNumereReale(double g, double h, double i, double j, double k, double l)
+    {
+        G=g,H=h,I=i,J=j,K=k,L=l;
+    }
+};
+int main()
+{
+    int ok1=1,ok2;
+    while(ok1==1)
+    {
+        ok2=1;
+        cout<<"Introduceti numarul 1 pentru numere intregi"<<endl;
+        cout<<"Introduceti numarul 2 pentru numere reale"<<endl;
+        cout<<"Introduceti orice alt numar intreg pentru terminarea programului"<<endl;
+        cout<<"Numarul introdus este: ";
+        int n;
+        Calculator myCalc;
+        long long a,b,c,d,e,f;
+        double g,h,i,j,k,l;
+        cin>>n;
+        if(n==1 /** or **/ || n==2)
+            cout<<"Introduceti 6 numere ";
+        if(n==1)
+        {
+            cout<<"intregi: ";
+            cin>>a>>b>>c>>d>>e>>f;
+            myCalc.declarareNumereIntregi(a,b,c,d,e,f);
+        }
+        else if(n==2)
+        {
+            cout<<"reale: ";
+            cin>>g>>h>>i>>j>>k>>l;
+            myCalc.declarareNumereReale(g,h,i,j,k,l);
+        }
+        else
+        {
+            ok1=0;
+            ok2=0;
+        }
+        while(ok2==1)
+        {
+            cout<<"Introduceti numarul 0 pentru reintroducerea numerelor"<<endl;
+            cout<<"Introduceti numarul 1 pentru adunarea celor 6 numere"<<endl;
+            cout<<"Introduceti numarul 2 pentru scaderea primului numar cu suma celorlalte 5 numere"<<endl;
+            cout<<"Introduceti numarul 3 pentru inmultirea celor 6 numere"<<endl;
+            cout<<"Introduceti numarul 4 pentru impartirea primului numar cu produsul celorlalte 5 numere"<<endl;
+            cout<<"Introduceti orice alt numar intreg pentru terminarea programului"<<endl;
+            cout<<"Numarul introdus este: ";
+            int m;
+            cin>>m;
+            if(m<0||m>4)
+            {
+                ok1=0;
+                ok2=0;
+            }
+            else if(m==1)
+            {
+                cout << "Suma celor 6 numere este: ";
+                if(n==1)
+                    cout << myCalc.adunareNumereIntregi();
+                else
+                    cout << myCalc.adunareNumereReale();
+                cout << endl;
+            }
+            else if(m==2)
+            {
+                cout << "Diferenta dintre primul numar si suma celorlalte 5 numere este: ";
+                if(n==1)
+                    cout << myCalc.scadereNumereIntregi();
+                else
+                    cout << myCalc.scadereNumereReale();
+                cout << endl;
+            }
+            else if(m==3)
+            {
+                cout << "Produsul celor 6 numere este: ";
+                if(n==1)
+                    cout << myCalc.inmultireNumereIntregi();
+                else
+                    cout << myCalc.inmultireNumereReale();
+                cout << endl;
+            }
+            else if(m==4)
+            {
+                cout << "Catul dintre primul numar si produsul celorlalte 5 numere este: ";
+                if(n==1)
+                    cout << myCalc.impartireNumereIntregi();
+                else
+                    cout << myCalc.impartireNumereReale();
+                cout << endl;
+            }
+            else if(m==0)
+                ok2=0;
+        }
+    }
+    cout<<"Programul s-a terminat! Puteti apasa orice tasta pentru a inchide fereastra";
     return 0;
 }
