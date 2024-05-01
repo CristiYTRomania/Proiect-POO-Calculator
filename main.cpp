@@ -130,6 +130,6 @@ calculare:
         goto calculare;
     }
 etexit:
-    cout<<"Programul s-a terminat! Puteti apasa orice tasta pentru a inchide fereastra";
+    cout<<"Programul s-a terminat! Puteti apasa orice tasta pentru a inchide fereastra (daca rulati executabilul in aplicatia CodeBlocks)";
     return 0;
 }
