@@ -87,7 +87,7 @@ public:
 };
 int main()
 {
-    system("color 09");
+    ///system("color 09");
     int n,x;
     long long l[1001];
     double d[1001];
@@ -177,6 +177,6 @@ calculare:
         goto calculare;
     }
 etexit:
-    system("color 0f");
+    ///system("color 0f");
     return 0;
 }
