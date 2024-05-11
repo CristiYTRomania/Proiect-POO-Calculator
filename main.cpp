@@ -100,12 +100,12 @@ inceput:
     std::cin>>n;
     if(n==1 || n==2)
     {
-        do
+        x=1;
+        while(x<2)
         {
             std::cout<<"Cate numere vreti sa introduceti pentru calcule aritmetice? (n>1) ";
             std::cin>>x;
         }
-        while(x<2);
         std::cout<<"Introduceti "<<x<<" numere ";
     }
     if(n==1)
