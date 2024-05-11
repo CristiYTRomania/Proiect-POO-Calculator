@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cmath>
-#include <stdlib.h>
 class Calculator
 {
 private:
@@ -64,30 +63,21 @@ public:
             P = P*L[i];
         return P==0 ? (long long)-2147483647-1 : L[1]/P;
     }
-    void declarareNumereIntregi(long long l[],int x)
+    void declarareNumereIntregi(long long l[1001],int x)
     {
         for(int i=1;i<=x;i++)
             L[i]=l[i];
         Calculator::x=x;
     }
-    void declarareNumereReale(double d[],int x)
+    void declarareNumereReale(double d[1001],int x)
     {
         for(int i=1;i<=x;i++)
             D[i]=d[i];
         Calculator::x=x;
     }
-    /*Calculator()
-    {
-        std::cout<<"\nProiect POO - Calculator - Jitescu Silviu-Cristian - grupa 133\n";
-    }
-    ~Calculator()
-    {
-        std::cout<<"\nProgramul s-a terminat! Puteti apasa orice tasta pentru a inchide fereastra (daca rulati executabilul in aplicatia CodeBlocks)\n\n";
-    }*/
 };
 int main()
 {
-    ///system("color 09");
     int n,x;
     long long l[1001];
     double d[1001];
@@ -177,6 +167,5 @@ calculare:
         goto calculare;
     }
 etexit:
-    ///system("color 0f");
     return 0;
 }
