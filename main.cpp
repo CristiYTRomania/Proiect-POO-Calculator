@@ -61,7 +61,7 @@ public:
         P=1;
         for(int i=2;i<=x;i++)
             P = P*L[i];
-        return P==0 ? (long long)(-2147483647)-1 : L[1]/P;
+        return P==0 ? 0 : L[1]/P;
     }
     void declarareNumereIntregi(long long l[1001],int X)
     {
