@@ -76,14 +76,14 @@ public:
             D[i]=d[i];
         Calculator::x=x;
     }
-    Calculator()
+    /*Calculator()
     {
         std::cout<<"\nProiect POO - Calculator - Jitescu Silviu-Cristian - grupa 133\n";
     }
     ~Calculator()
     {
         std::cout<<"\nProgramul s-a terminat! Puteti apasa orice tasta pentru a inchide fereastra (daca rulati executabilul in aplicatia CodeBlocks)\n\n";
-    }
+    }*/
 };
 int main()
 {
