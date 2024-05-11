@@ -64,13 +64,13 @@ public:
             P = P*L[i];
         return P==0 ? (long long)-2147483647-1 : L[1]/P;
     }
-    void declarareNumereIntregi(long long l[],int X)
+    void declarareNumereIntregi(const long long l[],int X)
     {
         for(int i=1;i<=X;i++)
             L[i]=l[i];
         x=X;
     }
-    void declarareNumereReale(double d[],int X)
+    void declarareNumereReale(const double d[],int X)
     {
         for(int i=1;i<=X;i++)
             D[i]=d[i];
