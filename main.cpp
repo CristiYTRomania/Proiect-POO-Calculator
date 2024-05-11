@@ -84,87 +84,87 @@ int main()
     double d[1001];
     Calculator myCalc;
 inceput:
-    std::cout<<std::endl<<"Introduceti numarul 1 pentru numere intregi"<<std::endl;
-    std::cout<<"Introduceti numarul 2 pentru numere reale"<<std::endl;
-    std::cout<<"Introduceti orice alt numar intreg pentru terminarea programului"<<std::endl;
-    std::cout<<"Numarul introdus este: ";
-    std::cin>>n;
+    cout<<endl<<"Introduceti numarul 1 pentru numere intregi"<<endl;
+    cout<<"Introduceti numarul 2 pentru numere reale"<<endl;
+    cout<<"Introduceti orice alt numar intreg pentru terminarea programului"<<endl;
+    cout<<"Numarul introdus este: ";
+    cin>>n;
     if(n==1 || n==2)
     {
         x=1;
         while(x<2)
         {
-            std::cout<<"Cate numere vreti sa introduceti pentru calcule aritmetice? (n>1) ";
-            std::cin>>x;
+            cout<<"Cate numere vreti sa introduceti pentru calcule aritmetice? (n>1) ";
+            cin>>x;
         }
-        std::cout<<"Introduceti "<<x<<" numere ";
+        cout<<"Introduceti "<<x<<" numere ";
     }
     if(n==1)
     {
-        std::cout<<"intregi: ";
+        cout<<"intregi: ";
         for(i=1;i<=x;i++)
-            std::cin>>l[i];
+            cin>>l[i];
         myCalc.declarareNumereIntregi(l,x);
     }
     else if(n==2)
     {
-        std::cout<<"reale: ";
+        cout<<"reale: ";
         for(i=1;i<=x;i++)
-            std::cin>>d[i];
+            cin>>d[i];
         myCalc.declarareNumereReale(d,x);
     }
     else
         goto etexit;
 calculare:
-    std::cout<<std::endl<<"Introduceti numarul 0 pentru reintroducerea numerelor"<<std::endl;
-    std::cout<<"Introduceti numarul 1 pentru suma celor "<<x<<" numere"<<std::endl;
-    std::cout<<"Introduceti numarul 2 pentru scaderea primului numar cu suma celorlalte "<<x-1<<" numere"<<std::endl;
-    std::cout<<"Introduceti numarul 3 pentru produsul celor "<<x<<" numere"<<std::endl;
-    std::cout<<"Introduceti numarul 4 pentru impartirea primului numar cu produsul celorlalte "<<x-1<<" numere"<<std::endl;
-    std::cout<<"Introduceti orice alt numar intreg pentru terminarea programului"<<std::endl;
-    std::cout<<"Numarul introdus este: ";
+    cout<<endl<<"Introduceti numarul 0 pentru reintroducerea numerelor"<<endl;
+    cout<<"Introduceti numarul 1 pentru suma celor "<<x<<" numere"<<endl;
+    cout<<"Introduceti numarul 2 pentru scaderea primului numar cu suma celorlalte "<<x-1<<" numere"<<endl;
+    cout<<"Introduceti numarul 3 pentru produsul celor "<<x<<" numere"<<endl;
+    cout<<"Introduceti numarul 4 pentru impartirea primului numar cu produsul celorlalte "<<x-1<<" numere"<<endl;
+    cout<<"Introduceti orice alt numar intreg pentru terminarea programului"<<endl;
+    cout<<"Numarul introdus este: ";
     int m;
-    std::cin>>m;
+    cin>>m;
     if(m==0)
         goto inceput;
     if(m==1)
     {
-        std::cout << "Suma celor "<<x<<" numere este: ";
+        cout << "Suma celor "<<x<<" numere este: ";
         if(n==1)
-            std::cout << myCalc.adunareNumereIntregi();
+            cout << myCalc.adunareNumereIntregi();
         else
-            std::cout << myCalc.adunareNumereReale();
-        std::cout << std::endl;
+            cout << myCalc.adunareNumereReale();
+        cout << endl;
         goto calculare;
     }
     else if(m==2)
     {
-        std::cout << "Diferenta dintre primul numar si suma celorlalte "<<x-1<<" numere este: ";
+        cout << "Diferenta dintre primul numar si suma celorlalte "<<x-1<<" numere este: ";
         if(n==1)
-            std::cout << myCalc.scadereNumereIntregi();
+            cout << myCalc.scadereNumereIntregi();
         else
-            std::cout << myCalc.scadereNumereReale();
-        std::cout << std::endl;
+            cout << myCalc.scadereNumereReale();
+        cout << endl;
         goto calculare;
     }
     else if(m==3)
     {
-        std::cout << "Produsul celor "<<x<<" numere este: ";
+        cout << "Produsul celor "<<x<<" numere este: ";
         if(n==1)
-            std::cout << myCalc.inmultireNumereIntregi();
+            cout << myCalc.inmultireNumereIntregi();
         else
-            std::cout << myCalc.inmultireNumereReale();
-        std::cout << std::endl;
+            cout << myCalc.inmultireNumereReale();
+        cout << endl;
         goto calculare;
     }
     else if(m==4)
     {
-        std::cout << "Catul dintre primul numar si produsul celorlalte "<<x-1<<" numere este: ";
+        cout << "Catul dintre primul numar si produsul celorlalte "<<x-1<<" numere este: ";
         if(n==1)
-            std::cout << myCalc.impartireNumereIntregi();
+            cout << myCalc.impartireNumereIntregi();
         else
-            std::cout << myCalc.impartireNumereReale();
-        std::cout << std::endl;
+            cout << myCalc.impartireNumereReale();
+        cout << endl;
         goto calculare;
     }
 etexit:
