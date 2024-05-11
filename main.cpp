@@ -79,7 +79,7 @@ public:
 };
 int main()
 {
-    int i,n,x;
+    int i,n,x=0;
     long long l[1001];
     double d[1001];
     Calculator myCalc;
