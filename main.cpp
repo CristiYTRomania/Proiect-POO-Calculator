@@ -6,80 +6,80 @@ class Calculator
 private:
     long long L[1001],P;
     double D[1001],p;
-    int x;
+    int i,x;
 public:
     long long adunareNumereIntregi()
     {
         P=0;
-        for(int i=1;i<=x;i++)
+        for(i=1;i<=x;i++)
             P = P+L[i];
         return P;
     }
     double adunareNumereReale()
     {
         p=0;
-        for(int i=1;i<=x;i++)
+        for(i=1;i<=x;i++)
             p = p+D[i];
         return p;
     }
     double scadereNumereReale()
     {
         p=0;
-        for(int i=2;i<=x;i++)
+        for(i=2;i<=x;i++)
             p = p+D[i];
         return D[1]-p;
     }
     long long scadereNumereIntregi()
     {
         P=0;
-        for(int i=2;i<=x;i++)
+        for(i=2;i<=x;i++)
             P = P+L[i];
         return L[1]-P;
     }
     long long inmultireNumereIntregi()
     {
         P=1;
-        for(int i=1;i<=x;i++)
+        for(i=1;i<=x;i++)
             P = P*L[i];
         return P;
     }
     double inmultireNumereReale()
     {
         p=1;
-        for(int i=1;i<=x;i++)
+        for(i=1;i<=x;i++)
             p = p*D[i];
         return p;
     }
     double impartireNumereReale()
     {
         p=1;
-        for(int i=2;i<=x;i++)
+        for(i=2;i<=x;i++)
             p = p*D[i];
         return D[1]/p;
     }
     long long impartireNumereIntregi()
     {
         P=1;
-        for(int i=2;i<=x;i++)
+        for(i=2;i<=x;i++)
             P = P*L[i];
         return P==0 ? 0 : L[1]/P;
     }
     void declarareNumereIntregi(long long l[1001],int X)
     {
-        for(int i=1;i<=X;i++)
+        for(i=1;i<=X;i++)
             L[i]=l[i];
         x=X;
     }
     void declarareNumereReale(double d[1001],int X)
     {
-        for(int i=1;i<=X;i++)
+        for(i=1;i<=X;i++)
             D[i]=d[i];
         x=X;
     }
 };
 int main()
 {
-    int n,x;
+    int i,n,x;
     long long l[1001];
     double d[1001];
     Calculator myCalc;
@@ -102,14 +102,14 @@ inceput:
     if(n==1)
     {
         std::cout<<"intregi: ";
-        for(int i=1;i<=x;i++)
+        for(i=1;i<=x;i++)
             std::cin>>l[i];
         myCalc.declarareNumereIntregi(l,x);
     }
     else if(n==2)
     {
         std::cout<<"reale: ";
-        for(int i=1;i<=x;i++)
+        for(i=1;i<=x;i++)
             std::cin>>d[i];
         myCalc.declarareNumereReale(d,x);
     }
