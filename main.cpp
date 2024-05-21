@@ -1,6 +1,15 @@
 #include <iostream>
 #include <cmath>
 #include <stdlib.h>
+#include <stdexcept>
+class ImpartireaLaZero: public std::exception
+{
+public:
+    const char* what() const noexcept override
+    {
+        return "Impartitorul este zero!";
+    }
+};
 class Calculator
 {
 private:
@@ -62,7 +71,20 @@ public:
         P=1;
         for(int i=2;i<=x;i++)
             P = P*L[i];
-        return P==0 ? (long long)-2147483647-1 : L[1]/P;
+        try
+        {
+            if(P==0)
+            {
+                throw ImpartireaLaZero();
+            }
+        }
+        catch(const ImpartireaLaZero &e)
+        {
+            std::cerr<<e.what()<<' ';
+            return ((long long)-2147483647-1)*((long long)2147483647+1)*2;
+        }
+        return L[1]/P;
+        //return P==0 ? ((long long)-2147483647-1)*((long long)2147483647+1)*2 : L[1]/P;
     }
     void declarareNumereIntregi(const long long l[],int X)
     {
